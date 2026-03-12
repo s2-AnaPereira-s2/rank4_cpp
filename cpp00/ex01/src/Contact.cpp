@@ -1,9 +1,7 @@
 #include "Contact.hpp"
 
-// Constructor - initializes a new Contact with empty values
 Contact::Contact()
 {
-	// C++ strings are empty by default, but being explicit is good practice
 	this->firstName = "";
 	this->lastName = "";
 	this->nickname = "";
@@ -11,7 +9,6 @@ Contact::Contact()
 	this->darkestSecret = "";
 }
 
-// Setters - these allow controlled access to set private data
 void	Contact::setFirstName(std::string str)
 {
 	this->firstName = str;
@@ -37,7 +34,6 @@ void	Contact::setDarkestSecret(std::string str)
 	this->darkestSecret = str;
 }
 
-// Getters - these return the private data (const means they don't modify)
 std::string	Contact::getFirstName() const
 {
 	return this->firstName;

@@ -14,6 +14,10 @@ int main(int argc, char **argv)
 		{
 			std::cout << (char)toupper(argv[i][j]);
 		}
+		if (argv[i + 1])
+		{
+			std::cout << ' ';
+		}
 	}
 	std::cout << std::endl;
 	return 0;

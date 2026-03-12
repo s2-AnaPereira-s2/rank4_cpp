@@ -8,21 +8,18 @@
 class PhoneBook
 {
 private:
-	Contact	contacts[8];		// Array of 8 contacts (max capacity)
-	int		contactCount;		// How many contacts we've added
-	int		oldestIndex;		// Which contact to replace next (circular)
+	Contact	contacts[8];		
+	int		contactCount;
+	int		oldestIndex;
 
-	// Private helper functions
 	std::string	truncate(std::string str, size_t width) const;
 	void		printColumn(std::string str, size_t width) const;
 	void		displayContactTable() const;
 	void		displayContactDetails(int index) const;
 
 public:
-	// Constructor
 	PhoneBook();
 	
-	// Public interface - the main three commands
 	void	addContact();
 	void	searchContacts() const;
 };

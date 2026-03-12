@@ -5,7 +5,7 @@
 int main()
 {
 	PhoneBook	phoneBook;
-	std::string	command;
+	std::string	action;
 
 	std::cout << "Welcome to My Awesome PhoneBook!" << std::endl;
 
@@ -13,15 +13,13 @@ int main()
 	{
         std::cout << "You can: ADD, SEARCH or EXIT" << std::endl;
 		std::cout << "\nWhat would you like: ";
-		std::getline(std::cin, command);
+		std::getline(std::cin, action);
 
-        
-
-		if (command == "ADD")
+		if (action == "ADD")
 			phoneBook.addContact();
-		else if (command == "SEARCH")
+		else if (action == "SEARCH")
 			phoneBook.searchContacts();
-		else if (command == "EXIT")
+		else if (action == "EXIT")
 		{
 			std::cout << "Goodbye!" << std::endl;
 			break;

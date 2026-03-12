@@ -1,13 +1,12 @@
 #include "PhoneBook.hpp"
 
-// Constructor - initialize with no contacts
 PhoneBook::PhoneBook()
 {
 	this->contactCount = 0;
 	this->oldestIndex = 0;
 }
 
-// Truncate string to width, adding '.' if too long
+
 std::string	PhoneBook::truncate(std::string str, size_t width) const
 {
 	if (str.length() > width)
@@ -15,13 +14,11 @@ std::string	PhoneBook::truncate(std::string str, size_t width) const
 	return str;
 }
 
-// Print a column with fixed width, right-aligned
 void	PhoneBook::printColumn(std::string str, size_t width) const
 {
 	std::cout << std::setw(width) << truncate(str, width);
 }
 
-// Display full details of one contact
 void	PhoneBook::displayContactDetails(int index) const
 {
 	std::cout << "First Name: " << contacts[index].getFirstName() << std::endl;
@@ -31,7 +28,6 @@ void	PhoneBook::displayContactDetails(int index) const
 	std::cout << "Darkest Secret: " << contacts[index].getDarkestSecret() << std::endl;
 }
 
-// Display table of all contacts
 void	PhoneBook::displayContactTable() const
 {
 	std::cout << std::setw(10) << "Index" << "|";
@@ -52,7 +48,6 @@ void	PhoneBook::displayContactTable() const
 	}
 }
 
-// ADD command - prompt for all fields and add a contact
 void	PhoneBook::addContact()
 {
 	Contact		newContact;
@@ -78,9 +73,8 @@ void	PhoneBook::addContact()
 	std::getline(std::cin, input);
 	newContact.setDarkestSecret(input);
 
-	// Store the contact (replace oldest if full)
 	contacts[oldestIndex] = newContact;
-	oldestIndex = (oldestIndex + 1) % 8;  // Circular: 0,1,2...7,0,1,2...
+	oldestIndex = (oldestIndex + 1) % 8;
 	
 	if (contactCount < 8)
 		contactCount++;
@@ -88,7 +82,6 @@ void	PhoneBook::addContact()
 	std::cout << "Contact added successfully!" << std::endl;
 }
 
-// SEARCH command - display table then show details for selected index
 void	PhoneBook::searchContacts() const
 {
 	if (contactCount == 0)
@@ -103,14 +96,13 @@ void	PhoneBook::searchContacts() const
 	std::string input;
 	std::getline(std::cin, input);
 
-	// Simple validation - check if input is a single digit
 	if (input.length() != 1 || !isdigit(input[0]))
 	{
 		std::cout << "Invalid index!" << std::endl;
 		return;
 	}
 
-	int index = input[0] - '0';  // Convert char to int
+	int index = input[0] - '0'; 
 	
 	if (index < 0 || index >= contactCount)
 	{
