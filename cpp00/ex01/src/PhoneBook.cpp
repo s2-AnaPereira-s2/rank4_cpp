@@ -48,6 +48,20 @@ void	PhoneBook::displayContactTable() const
 	}
 }
 
+int	phonenumber_check(std:: string number)
+{
+	int i = 0;
+	while (number[i])
+	{
+		if (!isdigit(number[i]))
+		{
+			return 1;
+		}
+		i++;
+	}
+	return 0;
+}
+
 void	PhoneBook::addContact()
 {
 	Contact		newContact;
@@ -55,30 +69,79 @@ void	PhoneBook::addContact()
 
 	std::cout << "Enter first name: ";
 	std::getline(std::cin, input);
+	if (input.empty())
+	{
+		if (std::cin.eof())
+			return ;
+		std::cout << "*Ops seems you forgot something" << std::endl;
+		addContact();
+	}
 	newContact.setFirstName(input);
 
 	std::cout << "Enter last name: ";
 	std::getline(std::cin, input);
+	while (input.empty())
+	{
+		if (std::cin.eof())
+			return ;
+		std::cout << "*Ops seems you forgot something" << std::endl;
+		std::cout << "Enter last name: ";
+		std::getline(std::cin, input);
+	}
 	newContact.setLastName(input);
 
 	std::cout << "Enter nickname: ";
 	std::getline(std::cin, input);
+	while (input.empty())
+	{
+		if (std::cin.eof())
+			return ;
+		std::cout << "*Ops seems you forgot something" << std::endl;
+		std::cout << "Enter nickname: ";
+		std::getline(std::cin, input);
+	}
 	newContact.setNickname(input);
 
 	std::cout << "Enter phone number: ";
 	std::getline(std::cin, input);
+	while (input.empty())
+	{
+		if (std::cin.eof())
+			return ;
+		std::cout << "*Ops seems you forgot something" << std::endl;
+		std::cout << "Enter phone number: ";
+		std::getline(std::cin, input);
+	}
+	while (phonenumber_check(input))
+	{
+		if (std::cin.eof())
+			return ;
+		std::cout << "*numbers right?...please add numbers only!!!" << std::endl;
+		std::cout << "Enter phone number: ";
+		std::getline(std::cin, input);
+	}
 	newContact.setPhoneNumber(input);
 
 	std::cout << "Enter darkest secret: ";
 	std::getline(std::cin, input);
+	while (input.empty())
+	{
+		if (std::cin.eof())
+			return ;
+		std::cout << "*Ops seems you forgot something" << std::endl;
+		std::cout << "Enter darkest secret: ";
+		std::getline(std::cin, input);
+	}
 	newContact.setDarkestSecret(input);
 
 	contacts[oldestIndex] = newContact;
 	oldestIndex = (oldestIndex + 1) % 8;
+
+	if (std::cin.eof())
+		return ;
 	
 	if (contactCount < 8)
 		contactCount++;
-	
 	std::cout << "Contact added successfully!" << std::endl;
 }
 

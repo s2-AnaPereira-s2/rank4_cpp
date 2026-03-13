@@ -7,21 +7,21 @@
 
 class PhoneBook
 {
-private:
-	Contact	contacts[8];		
-	int		contactCount;
-	int		oldestIndex;
-
-	std::string	truncate(std::string str, size_t width) const;
-	void		printColumn(std::string str, size_t width) const;
-	void		displayContactTable() const;
-	void		displayContactDetails(int index) const;
-
-public:
-	PhoneBook();
+	private:
+		Contact	contacts[8];		
+		int		contactCount;
+		int		oldestIndex;
 	
-	void	addContact();
-	void	searchContacts() const;
+		std::string	truncate(std::string str, size_t width) const;
+		void		printColumn(std::string str, size_t width) const;
+		void		displayContactTable() const;
+		void		displayContactDetails(int index) const;
+	
+	public:
+		PhoneBook();
+		
+		void	addContact();
+		void	searchContacts() const;
 };
 
 #endif
