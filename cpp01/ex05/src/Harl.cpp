@@ -25,7 +25,7 @@ void Harl::complain(std::string level)
 {
     Harl harl;
 
-    std::string levels[] = {"debug", "info", "warning", "error"};
+    std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     void (Harl::*functions[4])() =
     {
         &Harl::debug,

@@ -19,7 +19,7 @@ int main(int argc, char **argv)
         return (std::cerr << "Error: file doesn't exist" << std::endl, 1);
     std::stringstream buffer;
 
-    buffer << infile.rdbuf(); // read whole file
+    buffer << infile.rdbuf(); 
     infile.close();
 
     std::string content = buffer.str();
@@ -27,8 +27,8 @@ int main(int argc, char **argv)
     int content_len = content.length();
     int str1_len = str1.length();
     int str2_len = str2.length();
-    //std::cout << "---THIS IS THE FILE BEFORE----" << std::endl;
-    //std::cout << content << std::endl;
+    std::cout << "---THIS IS THE FILE BEFORE----" << std::endl;
+    std::cout << content << std::endl;
     int i = 0;
     while (i < content_len)
     {
@@ -42,8 +42,8 @@ int main(int argc, char **argv)
         else
             i++;
     }
-    //std::cout << "---THIS IS THE FILE AFTER----" << std::endl;
-    //std::cout << content << std::endl;
+    std::cout << "---THIS IS THE FILE AFTER----" << std::endl;
+    std::cout << content << std::endl;
     std::ofstream outfile(file_name + ".replace");
     outfile << content;
     outfile.close();
