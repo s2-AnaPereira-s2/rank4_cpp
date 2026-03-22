@@ -23,7 +23,8 @@ int main()
 	
 	std::cout << "\n=== Test 4: Energy Depletion ===" << std::endl;
 	ScavTrap scav4("Robot");
-	for (int i = 0; i < 51; i++) {
+	for (int i = 0; i < 51; i++) 
+	{
 		std::cout << "Action " << i + 1 << ": ";
 		scav4.attack("Target");
 	}
