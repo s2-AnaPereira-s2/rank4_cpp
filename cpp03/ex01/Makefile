@@ -1,4 +1,4 @@
-NAME = ClapTrap
+NAME = ScavTrap
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -7,7 +7,8 @@ SRC_DIR = src
 OBJ_DIR = obj
 
 SRCS = $(SRC_DIR)/main.cpp \
-	$(SRC_DIR)/ClapTrap.cpp
+	$(SRC_DIR)/ClapTrap.cpp \
+	$(SRC_DIR)/ScavTrap.cpp
 
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
