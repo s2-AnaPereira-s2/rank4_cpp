@@ -1,4 +1,4 @@
-NAME = ex03
+NAME = ex00
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -7,7 +7,7 @@ SRC_DIR = src
 OBJ_DIR = obj
 
 SRCS = $(SRC_DIR)/main.cpp \
-	$(SRC_DIR)/Fixed.cpp \
+	$(SRC_DIR)/ClapTrap.cpp
 
 OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
@@ -23,6 +23,10 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
+print:
+	@echo SRCS=$(SRCS)
+	@echo OBJS=$(OBJS)
+
 clean:
 	@rm -rf $(OBJ_DIR)
 
@@ -31,4 +35,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re print
