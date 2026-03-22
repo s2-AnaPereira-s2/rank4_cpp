@@ -23,25 +23,32 @@ class Fixed
         void setRawBits(int const raw);
         float toFloat( void ) const;
         int toInt( void ) const;
-        bool biggerThan (void);
-        bool smallerThan (void);
-        bool biggerEqual (void);
-        bool smallerEqual (void);
-        bool equalTo (void);
-        bool different (void);
-        float sum(int a, int b);
-        float substract(int a, int b);
-        float multiplicate(int a, int b);
-        float divide(int a, int b);
-        float increment(Fixed& a);
-        float decrement(Fixed& a);
+
+        // comparison
+        bool operator>(const Fixed& other) const;
+        bool operator<(const Fixed& other) const;
+        bool operator>=(const Fixed& other) const;
+        bool operator<=(const Fixed& other) const;
+        bool operator==(const Fixed& other) const;
+        bool operator!=(const Fixed& other) const;
+
+        // arithmetic
+        Fixed operator+(const Fixed& other) const;
+        Fixed operator-(const Fixed& other) const;
+        Fixed operator*(const Fixed& other) const;
+        Fixed operator/(const Fixed& other) const;
+        
+        // increment / decrement
+        Fixed& operator++();      // prefix
+        Fixed operator++(int);    // postfix
+        Fixed& operator--();      // prefix
+        Fixed operator--(int);    // postfix
+
+         // min / max
         static Fixed& min (Fixed& a, Fixed& b);
-        static Fixed& minConst (const Fixed& a, const Fixed& b);
+        static const Fixed& min (const Fixed& a, const Fixed& b);
         static Fixed& max (Fixed& a, Fixed& b);
-        static Fixed& maxConst (const Fixed& a, const Fixed& b);
-
-
-
+        static const Fixed& max (const Fixed& a, const Fixed& b);
 
 };
 
