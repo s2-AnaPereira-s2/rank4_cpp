@@ -7,7 +7,7 @@ ClapTrap::ClapTrap(std::string name) : name(name), hit(10), energy(10), attackDa
 
 ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name), hit(other.hit), energy(other.energy), attackDamage(other.attackDamage)
 {
-    std::cout << "Copy constructor has been called" << std::endl;
+    std::cout << "ClapTrap copy constructor has been called" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
@@ -19,7 +19,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
         this->energy = other.energy;
         this->attackDamage = other.attackDamage;
     }
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "ClapTrap copy assignment operator called" << std::endl;
     return *this;
 }
 
